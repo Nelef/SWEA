@@ -1,0 +1,14 @@
+package problem_0203;
+
+public class 거듭제곱 {
+	public static void main(String[] args) {
+		System.out.println(pow(2, 5));
+	}
+
+	public static int pow(int n, int m) {
+		if (m == 1) {
+			return n;
+		}
+		return n * pow(n, m - 1);
+	}
+}

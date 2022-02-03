@@ -2,6 +2,10 @@ package test;
 
 public class test {
 	public static void main(String[] args) {
-		System.out.println("test");
+		System.out.println("|\\_/|");
+		System.out.println("|q p|   /}");
+		System.out.println("( 0 )\"\"\"\\");
+		System.out.println("|\"^\"`    |");
+		System.out.println("||_/=\\\\__|\r");
 	}
 }
