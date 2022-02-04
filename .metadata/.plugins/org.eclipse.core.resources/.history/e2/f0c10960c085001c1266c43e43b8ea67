@@ -1,0 +1,9 @@
+package test;
+
+public class test {
+	public static void main(String[] args) {
+		char temp = '0';
+		
+		System.out.println(temp < '9');
+	}
+}

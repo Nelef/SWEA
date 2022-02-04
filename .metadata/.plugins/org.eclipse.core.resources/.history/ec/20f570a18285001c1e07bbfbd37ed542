@@ -1,0 +1,20 @@
+package problem_0204;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class 계산기3 {
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		for (int tn = 0; tn < 10; tn++) {
+			int t_size = Integer.parseInt(br.readLine());	
+			
+			StringTokenizer st = new StringTokenizer(br.readLine());
+			
+			
+		}
+	}
+}
