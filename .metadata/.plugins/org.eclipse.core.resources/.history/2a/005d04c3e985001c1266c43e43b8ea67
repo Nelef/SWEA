@@ -35,7 +35,6 @@ public class 비밀번호 {
 			for (char c : list) {
 				System.out.print(c);
 			}
-			System.out.println();
 		}
 	}
 }

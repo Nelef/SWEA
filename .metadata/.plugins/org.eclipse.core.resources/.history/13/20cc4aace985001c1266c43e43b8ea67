@@ -30,12 +30,9 @@ public class 비밀번호 {
 					list.add(++top, t_string.charAt(i));
 				}
 			}
-
-			System.out.print("#" + (tc + 1) + " ");
-			for (char c : list) {
+			for(char c : list) {
 				System.out.print(c);
 			}
-			System.out.println();
 		}
 	}
 }

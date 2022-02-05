@@ -69,16 +69,16 @@ public class 계산기3 {
 					r_stack.add(++r_top, Character.getNumericValue(cur));
 				} else {
 					int t_prec = prec(cur); // 무슨 연산자인지 체크
-					if (t_prec == 1) { // + 연산일경우
-						r_stack.set(r_top - 1, r_stack.get(r_top) + r_stack.get(r_top - 1));
+					if(t_prec == 1) { // + 연산일경우
+						r_stack.set(r_top-1, r_stack.get(r_top) + r_stack.get(r_top-1));
 						r_stack.remove(r_top--);
-					} else if (t_prec == 2) { // * 연산일경우
-						r_stack.set(r_top - 1, r_stack.get(r_top) * r_stack.get(r_top - 1));
+					} else if(t_prec == 2) { // * 연산일경우
+						r_stack.set(r_top-1, r_stack.get(r_top) * r_stack.get(r_top-1));
 						r_stack.remove(r_top--);
 					}
 				}
 			}
-			System.out.println("#" + (tn + 1) + " " + r_stack.get(0));
+			System.out.println("#"+(tn+1)+" "+r_stack.get(0));
 		}
 	}
 
