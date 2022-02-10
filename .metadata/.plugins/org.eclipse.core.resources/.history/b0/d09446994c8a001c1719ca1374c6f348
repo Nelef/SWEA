@@ -1,0 +1,67 @@
+package problem_0210;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+
+public class 최대상금 {
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		int a = Integer.parseInt(br.readLine());
+
+		int cur = 0;
+		
+		for (int i = 0; i < a; i++) {
+			ArrayList<Character> list = new ArrayList<Character>();
+
+			StringTokenizer st = new StringTokenizer(br.readLine());
+
+			String str = st.nextToken();
+
+			int num = Integer.parseInt(st.nextToken());
+
+			for (int j = 0; j < str.length(); j++) {
+				list.add(str.charAt(j));
+			}
+
+			boolean isChange = false;
+
+			for (int j = 0; j < num; j++) { // 바꾸는 횟수
+				if (cur == list.size()) { 
+					cur = 0;
+				}
+				char max = 0;
+				int max_index = -1;
+
+				for (int k = cur; k < list.size(); k++) {
+					if (list.get(k) > max) {
+						max = list.get(k);
+						max_index = k;
+					}
+				}
+				if (max_index != -1) {
+					isChange = true;
+					char temp = list.get(cur);
+					list.set(cur, list.get(max_index));
+					list.set(max_index, (char) temp);
+				}
+			}
+			cur++;
+			if (isChange == false && (list.size() - 1) == cur) {
+				cur--;
+				char temp = list.get(cur);
+				list.set(cur, list.get(cur - 1));
+				list.set(cur - 1, (char) temp);
+			}
+
+			System.out.printf("#%d ", i + 1);
+			for (char result_char : list) {
+				System.out.print(result_char);
+			}
+			System.out.println();
+		}
+	}
+}
