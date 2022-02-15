@@ -27,6 +27,11 @@ public class 최대상금 {
 
 			int cur = 0;
 
+			for (char result_char : list) {
+				System.out.print(result_char);
+			}
+			System.out.println();
+
 			while (num != 0) { // 바꾸는 횟수
 				char max = 0;
 				int max_index = -1;
@@ -39,7 +44,7 @@ public class 최대상금 {
 				}
 				if (max_index != -1 && list.get(cur) < list.get(max_index)) { // 현재자리보다 큰 것을 발견 했다면
 					int start_max_index = 0;
-					// 제일 큰자리와 같은 수가 이전에 붙어 있을 경우 후에 재정렬을 해야 정확하게 나옴.
+					// 제일 큰자리와 같은 수가 이전에 붙어 있을 경우 후에 재정렬을 해야 빠름.
 					for (int cur_k = max_index; cur_k >= 0; cur_k--) {
 						if (list.get(cur_k) == list.get(max_index)) {
 							start_max_index = cur_k;
@@ -49,7 +54,7 @@ public class 최대상금 {
 					}
 					// 큰자리와 붙어있는 개수만큼 변경
 					int end_max_index = max_index;
-					for (int j = 0; j <= end_max_index - start_max_index + 1; j++) {
+					for (int j = 0; j < (end_max_index - start_max_index); j++) {
 						char temp = list.get(cur);
 						list.set(cur, list.get(end_max_index));
 						list.set(end_max_index, (char) temp);
@@ -61,17 +66,20 @@ public class 최대상금 {
 						end_max_index--;
 					}
 					// 변경된 개수만큼 재정렬 123 -> 321
-					for (int j = start_max_index; j <= max_index - 1; j++) {
-						int idx = j;
-						for (int k = j + 1; k <= max_index; k++) {
-							if (list.get(k) > list.get(idx)) {
-								idx = k;
+					for (int j = start_max_index; j <= max_index; j++) {
+						for (int k = 0; k <= max_index - j; k++) {
+							if (list.get(k) < list.get(k + 1)) {
+								char temp = list.get(k);
+								list.set(k, list.get(k + 1));
+								list.set(k + 1, temp);
 							}
 						}
-						char temp = list.get(j);
-						list.set(j, list.get(idx));
-						list.set(idx, temp);
 					}
+
+					for (char result_char : list) {
+						System.out.print(result_char);
+					}
+					System.out.println();
 				} else {
 					if (cur == list.size()) {
 						break;
@@ -109,6 +117,10 @@ public class 최대상금 {
 						list.set(cur, list.get(list.size() - 1));
 						list.set(list.size() - 1, (char) temp);
 						num--;
+						for (char result_char : list) {
+							System.out.print(result_char);
+						}
+						System.out.println();
 					}
 				} else { // 같은게 존재한다면,
 					num = 0; // 굳이 바꾸지 말고 탈출

@@ -27,6 +27,11 @@ public class 최대상금 {
 
 			int cur = 0;
 
+			for (char result_char : list) {
+				System.out.print(result_char);
+			}
+			System.out.println();
+
 			while (num != 0) { // 바꾸는 횟수
 				char max = 0;
 				int max_index = -1;
@@ -72,6 +77,11 @@ public class 최대상금 {
 						list.set(j, list.get(idx));
 						list.set(idx, temp);
 					}
+
+					for (char result_char : list) {
+						System.out.print(result_char);
+					}
+					System.out.println();
 				} else {
 					if (cur == list.size()) {
 						break;
@@ -109,6 +119,10 @@ public class 최대상금 {
 						list.set(cur, list.get(list.size() - 1));
 						list.set(list.size() - 1, (char) temp);
 						num--;
+						for (char result_char : list) {
+							System.out.print(result_char);
+						}
+						System.out.println();
 					}
 				} else { // 같은게 존재한다면,
 					num = 0; // 굳이 바꾸지 말고 탈출
